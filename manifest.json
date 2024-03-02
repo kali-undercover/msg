@@ -1,0 +1,17 @@
+{
+    "lang": "en-us",
+    "name": "quatsch-app",
+    "short_name": "quatsch-app",
+    "description": "The best chat-app",
+    "start_url": "/",
+    "background_color": "#343a40",
+    "theme_color": "#343a40",
+    "orientation": "portrait",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "https://kali-undercover.github.io/msg/logo-512.png",
+            "sizes": "512x512"
+        }
+    ]
+}
