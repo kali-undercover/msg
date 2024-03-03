@@ -17,7 +17,8 @@
             "icons": [
                 {
                     "src": "https://th.bing.com/th/id/OIP.ox3OBdCSzIVnT9lz1ZdamwHaHv?w=192&h=192",
-                    "sizes": "192x192"
+                    "sizes": "192x192",
+                    "purpose": "maskable"
                 }
             ]
         },
@@ -29,7 +30,8 @@
             "icons": [
                 {
                     "src": "https://th.bing.com/th/id/OIP.7BZ9pcHgRQ0G0fjrhPSx4gHaHa?w=192&h=192",
-                    "sizes": "192x192"
+                    "sizes": "192x192",
+                    "purpose": "maskable"
                 }
             ]
         }
@@ -37,7 +39,8 @@
     "icons": [
         {
             "src": "https://kali-undercover.github.io/msg/logo-512.png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "maskable"
         }
     ]
 }
