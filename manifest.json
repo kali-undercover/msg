@@ -3,7 +3,7 @@
     "name": "quatsch-app",
     "short_name": "quatsch-app",
     "description": "The best chat-app",
-    "start_url": "/msg",
+    "start_url": "/msg/#/chats",
     "background_color": "rgb(43, 48, 53)",
     "theme_color": "rgb(43, 48, 53)",
     "orientation": "portrait",
