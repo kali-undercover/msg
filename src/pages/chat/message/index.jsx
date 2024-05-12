@@ -15,6 +15,17 @@ function Message({
   selectedReactionMessagesId,
 }) {
   const [viewComments, setViewComments] = useState(false);
+
+  const selectMessageHandler = (e) => {
+    e.preventDefault();
+    setSelectedReactionMessagesId(
+      selectedReactionMessagesId == id ? "none" : id
+    );
+    setTimeout(() => {
+      e.target.scrollIntoView({ block: "center", behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     <>
       <div
@@ -22,15 +33,7 @@ function Message({
         onClick={(e) => {
           setViewComments((v) => !v);
         }}
-        onDoubleClick={(e) => {
-          e.preventDefault();
-          setSelectedReactionMessagesId(
-            selectedReactionMessagesId == id ? "none" : id
-          );
-          setTimeout(() => {
-            e.target.scrollIntoView({ block: "center", behavior: "smooth" });
-          }, 100);
-        }}
+        onDoubleClick={selectMessageHandler}
         ref={i == messagesLength - 1 ? lastMsg : null}
         key={id}
         className={[

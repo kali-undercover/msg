@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import toIframeUrl from "./to-iframe-url";
 function SendForm({
   room,
   canWrite,
@@ -25,12 +26,14 @@ function SendForm({
 
   function sendMessage() {
     if (messageText == "") return;
+
     var data = {
       room,
-      data: messageText,
+      data: toIframeUrl(messageText),
       type,
       reaction: selectedReactionMessagesId,
     };
+
     API.say("send-message", data);
     setMessageText("");
     setSelectedReactionMessagesId("none");
