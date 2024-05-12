@@ -1,10 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+function SharePage({ rooms, setRooms }) {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-function Chats({ rooms, setRooms }) {
   return (
     <div className="container">
       <br />
-      <h3>Chats</h3>
+      <div style={{ display: "flex" }}>
+        <Link
+          className="btn btn-primary"
+          to={`/chats`}
+          style={{ marginRight: "10px" }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e8eaed"
+          >
+            <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+          </svg>
+        </Link>
+        <h3>Share</h3>
+      </div>
+      <br />
+      <textarea
+        className="form-control"
+        placeholder="send text"
+        value={searchParams.get("text")}
+        onChange={(e) => setSearchParams({ text: e.target.value })}
+      ></textarea>
+      <br />
       <ul className="list-group list-group-flush">
         {Object.keys(rooms)
           .sort((a, b) => rooms[a].unread + rooms[b].unread)
@@ -25,7 +51,9 @@ function Chats({ rooms, setRooms }) {
                   });
                 }}
                 className="list-group-item"
-                to={`/chat/${key}`}
+                to={`/chat/${key}?${new URLSearchParams({
+                  text: searchParams.get("text"),
+                })}`}
                 key={key}
               >
                 <li className="chatt">
@@ -38,24 +66,6 @@ function Chats({ rooms, setRooms }) {
                       {rooms[key].unread}
                     </span>
                   )}
-
-                  <svg
-                    className="delete"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setRooms((old_rooms) => {
-                        const newChats = { ...old_rooms };
-                        delete newChats[key];
-                        return newChats;
-                      });
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    viewBox="0 -960 960 960"
-                    width="24"
-                  >
-                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
-                  </svg>
                 </li>
               </Link>
             );
@@ -64,4 +74,4 @@ function Chats({ rooms, setRooms }) {
     </div>
   );
 }
-export default Chats;
+export default SharePage;

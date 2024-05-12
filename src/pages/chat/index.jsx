@@ -67,6 +67,7 @@ function Chat({ contacts, messages, setMessages, setChats }) {
               <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
             </svg>
           </Link>
+          
           <input
             //chenge the chat name
             onInput={(e) => {

@@ -14,6 +14,7 @@ import You from "./pages/profile/you";
 import EditChat from "./pages/chat/edit";
 import CreateInviteLink from "./pages/create-invite-link";
 import Invite from "./pages/invite";
+import SharePage from "./pages/share";
 
 onblur = (e) => (window.roomID = "");
 
@@ -153,6 +154,10 @@ function App() {
             setContacts={setContacts}
           />
         }
+      />
+      <Route
+        path="/share"
+        element={<SharePage setRooms={setChatRooms} rooms={chatRooms} />}
       />
       <Route path="profile/you" element={<You />} />
       <Route path="profile/login" element={<Login />} />
