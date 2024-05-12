@@ -94,10 +94,12 @@ function Message({
           </Link>{" "}
           <b>{date}</b>
           <Menu
+            type={type}
             canWrite={canWrite}
             id={id}
             room_id={room_id}
             viewComments={viewComments}
+            data={data}
           />
         </span>
       </div>
